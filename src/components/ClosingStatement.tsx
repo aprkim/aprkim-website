@@ -12,7 +12,7 @@ export default function ClosingStatement() {
           href="mailto:aprkim@gmail.com"
           className="inline-flex items-center px-6 py-3 bg-[var(--color-brand)] text-white font-medium rounded-[var(--radius)] hover:opacity-90 transition-opacity"
         >
-          Say hello
+          Let's talk
           <ArrowIcon />
         </a>
       </div>
