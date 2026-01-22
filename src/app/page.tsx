@@ -6,7 +6,7 @@ import {
   OpportunitiesGrid,
   PersonalSection,
   LinksSection,
-  ClosingStatement,
+  ContactSection,
   Footer,
 } from '@/components';
 
@@ -21,7 +21,7 @@ export default function Home() {
         <OpportunitiesGrid />
         <PersonalSection />
         <LinksSection />
-        <ClosingStatement />
+        <ContactSection />
       </main>
       <Footer />
     </>
