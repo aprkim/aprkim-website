@@ -2,12 +2,6 @@ import Section from './Section';
 
 const links = [
   {
-    icon: 'github',
-    title: 'GitHub',
-    description: 'Code, experiments, and things I\'m learning in public',
-    url: 'https://github.com/aprkim',
-  },
-  {
     icon: 'substack',
     title: 'Substack',
     description: 'Long-form writing on building, language, and growth',
@@ -18,6 +12,12 @@ const links = [
     title: 'YouTube',
     description: 'Building, learning, and reflecting — in my own words',
     url: 'https://www.youtube.com/@aprilgrow',
+  },
+  {
+    icon: 'github',
+    title: 'GitHub',
+    description: 'Code, experiments, and things I\'m learning in public',
+    url: 'https://github.com/aprkim',
   },
   {
     icon: 'linkedin',
@@ -160,7 +160,7 @@ const iconMap: Record<string, () => JSX.Element> = {
 
 export default function LinksSection() {
   return (
-    <Section id="links" title="Links" subtitle="Find me around the web." background="soft">
+    <Section id="links" title="Links" subtitle="Places I write, build, and reflect." background="soft">
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {links.map((link) => {
           const IconComponent = iconMap[link.icon];
