@@ -4,7 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/aprkim-website',
 };
 
 export default nextConfig;

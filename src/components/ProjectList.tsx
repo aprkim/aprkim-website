@@ -23,7 +23,7 @@ const projects: Project[] = [
     tags: [],
     link: 'https://tinywins.space/',
     ctaLabel: 'Explore TinyWins',
-    secondaryLink: '/aprkim-website/projects/tinywins',
+    secondaryLink: '/projects/tinywins',
     secondaryCtaLabel: 'Why I built this',
   },
   {
@@ -47,7 +47,7 @@ const projects: Project[] = [
       'Over time, it evolves into a place where people can plan meals, document their food life, and eventually buy and sell food within trusted networks.',
     ],
     tags: [],
-    link: '/aprkim-website/projects/foxnfork',
+    link: '/projects/foxnfork',
     ctaLabel: 'View case study',
   },
 ];
