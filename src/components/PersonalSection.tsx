@@ -3,7 +3,7 @@ export default function PersonalSection() {
     <section className="py-16 md:py-20 bg-[var(--color-background)]">
       <div className="mx-auto max-w-[980px] px-5 md:px-8">
         <h3 className="text-lg font-medium text-[var(--color-muted)] mb-6">
-          Personal
+          What I'm exploring
         </h3>
         <div className="max-w-2xl space-y-5">
           <p className="text-[var(--color-text)] leading-relaxed">
@@ -12,9 +12,10 @@ export default function PersonalSection() {
           </p>
           <p className="text-[var(--color-text)] leading-relaxed">
             I&apos;m an immigrant founder building between cultures, raising a
-            bilingual child, and learning — very publicly — as I go. Lately,
-            I&apos;ve been especially curious about what it means to grow
-            without burning out.
+            trilingual child, and learning — very publicly — as I go. Lately,
+            I&apos;ve been focused on building the things I personally need
+            using vibe coding, while running and growing a vibe coding community
+            for women alongside it.
           </p>
           <p className="text-[var(--color-text)] leading-relaxed">
             Some of these thoughts turn into writing, some into small side
