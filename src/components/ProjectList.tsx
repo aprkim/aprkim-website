@@ -7,6 +7,8 @@ interface Project {
   tags: string[];
   link: string;
   ctaLabel?: string;
+  secondaryLink?: string;
+  secondaryCtaLabel?: string;
 }
 
 const projects: Project[] = [
@@ -19,8 +21,10 @@ const projects: Project[] = [
       'Start small. Stay human. Let things grow — in public.',
     ],
     tags: [],
-    link: '/projects/tinywins',
-    ctaLabel: 'Explore the system',
+    link: 'https://tinywins.space/',
+    ctaLabel: 'Explore TinyWins',
+    secondaryLink: '/aprkim-website/projects/tinywins',
+    secondaryCtaLabel: 'Why I built this',
   },
   {
     title: 'Tabbi AI',
@@ -32,6 +36,7 @@ const projects: Project[] = [
     ],
     tags: [],
     link: 'https://tabbi.ai/',
+    ctaLabel: 'View Tabbi AI',
   },
   {
     title: 'Fox & Fork',
@@ -42,7 +47,7 @@ const projects: Project[] = [
       'Over time, it evolves into a place where people can plan meals, document their food life, and eventually buy and sell food within trusted networks.',
     ],
     tags: [],
-    link: '/projects/foxnfork',
+    link: '/aprkim-website/projects/foxnfork',
     ctaLabel: 'View case study',
   },
 ];
@@ -137,17 +142,31 @@ export default function ProjectList() {
                 </h3>
                 <StatusBadge status={project.status} />
               </div>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
-                aria-label={`View ${project.title} project`}
-              >
-                {project.ctaLabel || 'View project'}
-                {project.link.startsWith('http') && <ExternalLinkIcon />}
-                {!project.link.startsWith('http') && <ArrowRightIcon />}
-              </a>
+              <div className="flex items-center gap-4">
+                <a
+                  href={project.link}
+                  target={project.link.startsWith('http') ? '_blank' : undefined}
+                  rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
+                  aria-label={`View ${project.title} project`}
+                >
+                  {project.ctaLabel || 'View project'}
+                  {project.link.startsWith('http') && <ExternalLinkIcon />}
+                  {!project.link.startsWith('http') && <ArrowRightIcon />}
+                </a>
+                {project.secondaryLink && (
+                  <a
+                    href={project.secondaryLink}
+                    target={project.secondaryLink.startsWith('http') ? '_blank' : undefined}
+                    rel={project.secondaryLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
+                  >
+                    {project.secondaryCtaLabel || 'Learn more'}
+                    {project.secondaryLink.startsWith('http') && <ExternalLinkIcon />}
+                    {!project.secondaryLink.startsWith('http') && <ArrowRightIcon />}
+                  </a>
+                )}
+              </div>
             </div>
             <div className="space-y-3 mb-4 max-w-2xl">
               {Array.isArray(project.description) ? (

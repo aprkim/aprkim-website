@@ -229,7 +229,7 @@ export default function TinyWinsPage() {
           </div>
         </section>
 
-        {/* Small tools */}
+        {/* Small tools - hidden for now
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-[var(--color-brand)] mb-6">
             Small tools
@@ -257,8 +257,9 @@ export default function TinyWinsPage() {
             ))}
           </div>
         </section>
+        */}
 
-        {/* How to follow along */}
+        {/* How to follow along - hidden for now
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-[var(--color-brand)] mb-6">
             How to follow along
@@ -275,6 +276,7 @@ export default function TinyWinsPage() {
             ))}
           </div>
         </section>
+        */}
 
         {/* Footnote */}
         <section className="mb-16 pb-16 border-b border-[var(--color-border)]">
