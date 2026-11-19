@@ -12,8 +12,8 @@ const btn =
 
 export default function Intro() {
   return (
-    <div className="grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1fr_300px] min-[821px]:gap-14 min-[821px]:pt-[72px]">
-      <div>
+    <div className="relative grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1fr_300px] min-[821px]:gap-14 min-[821px]:pt-[72px]">
+      <div className="relative z-10">
         {/*
           Both languages share one grid cell, so the block is always as tall
           as the longer one and nothing below it moves when the language
@@ -70,14 +70,33 @@ export default function Intro() {
         </ul>
       </div>
 
-      {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
-      <img
-        src="/april.jpg"
-        alt="April Kim smiling on the salt flats"
-        width={800}
-        height={800}
-        className="order-first block aspect-square h-auto w-full max-w-[220px] justify-self-start rounded-full object-cover shadow-[0_0_0_1px_var(--line)] min-[821px]:order-none min-[821px]:max-w-[300px] min-[821px]:justify-self-end"
-      />
+      {/*
+        Light: a wide landscape crop used as a backdrop. On desktop it bleeds
+        to the right edge of the window and fades out behind the text; on
+        mobile it's a full-width banner that fades at the bottom. Dark: the
+        bright sky would glow against the dark page, so a crisp circular
+        crop shows in the photo column instead. Which one shows is decided in
+        globals.css from the device setting or the theme switch.
+      */}
+      <div className="order-first w-full min-[821px]:order-none">
+        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
+        <img
+          src="/april-landscape.jpg"
+          alt="April Kim smiling on the salt flats"
+          width={1600}
+          height={960}
+          className="hero-photo-light -mx-6 block aspect-[5/3] h-auto w-[calc(100%+48px)] max-w-none object-cover min-[821px]:absolute min-[821px]:right-[calc((812px-100vw)/2)] min-[821px]:top-1/2 min-[821px]:mx-0 min-[821px]:w-[min(calc(50vw+80px),760px)] min-[821px]:-translate-y-1/2"
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
+        <img
+          src="/april.jpg"
+          alt="April Kim smiling on the salt flats"
+          width={800}
+          height={800}
+          loading="lazy"
+          className="hero-photo-dark aspect-square h-auto w-full max-w-[220px] object-cover min-[821px]:max-w-none"
+        />
+      </div>
     </div>
   );
 }
