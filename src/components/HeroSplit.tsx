@@ -37,14 +37,15 @@ export default function HeroSplit() {
             </div>
           </div>
 
-          {/* Photo Placeholder */}
+          {/* Photo */}
           <div className="order-1 md:order-2 flex justify-center md:justify-end">
-            <div className="w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-[var(--color-soft-surface)] to-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center">
-              <div className="text-center text-[var(--color-border)]">
-                <PhotoIcon />
-                <p className="mt-2 text-xs opacity-60">Photo</p>
-              </div>
-            </div>
+            <img
+              src="/april.jpg"
+              alt="April Kim smiling"
+              width={800}
+              height={800}
+              className="w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full object-cover border border-[var(--color-border)] shadow-sm"
+            />
           </div>
         </div>
       </div>
@@ -68,25 +69,6 @@ function ArrowIcon() {
     >
       <line x1="5" y1="12" x2="19" y2="12" />
       <polyline points="12 5 19 12 12 19" />
-    </svg>
-  );
-}
-
-function PhotoIcon() {
-  return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.25"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M20 21a8 8 0 1 0-16 0" />
     </svg>
   );
 }
