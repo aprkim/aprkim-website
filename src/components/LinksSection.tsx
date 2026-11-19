@@ -1,4 +1,5 @@
 import Section from './Section';
+import EmailCard from './EmailCard';
 
 const links = [
   {
@@ -190,6 +191,15 @@ export default function LinksSection() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {links.map((link) => {
           const IconComponent = iconMap[link.icon];
+          if (link.url.startsWith('mailto:')) {
+            return (
+              <EmailCard
+                key={link.title}
+                email={link.url.replace('mailto:', '')}
+                icon={<IconComponent />}
+              />
+            );
+          }
           return (
             <a
               key={link.title}
