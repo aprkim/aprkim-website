@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -72,8 +73,9 @@ export const viewport: Viewport = {
  * Runs before first paint so the page never flashes the wrong language.
  * Priority: #ko / #en in the URL, then the saved choice, then the browser
  * language (Korean browsers default to Korean), then English.
+ * Also applies a saved light/dark choice from the theme switch.
  */
-const langScript = `(function(){try{var r=document.documentElement,s=null;try{s=localStorage.getItem('aprkim-lang')}catch(e){}if(location.hash==='#ko')s='ko';if(location.hash==='#en')s='en';if(s!=='ko'&&s!=='en')s=(navigator.language||'').toLowerCase().indexOf('ko')===0?'ko':'en';r.setAttribute('data-lang',s);r.setAttribute('lang',s)}catch(e){}})();`;
+const langScript = `(function(){try{var r=document.documentElement,s=null;try{s=localStorage.getItem('aprkim-lang')}catch(e){}if(location.hash==='#ko')s='ko';if(location.hash==='#en')s='en';if(s!=='ko'&&s!=='en')s=(navigator.language||'').toLowerCase().indexOf('ko')===0?'ko':'en';r.setAttribute('data-lang',s);r.setAttribute('lang',s);var t=null;try{t=localStorage.getItem('aprkim-theme')}catch(e){}if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -89,7 +91,10 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ThemeToggle />
+      </body>
     </html>
   );
 }

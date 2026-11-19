@@ -71,21 +71,30 @@ export default function Intro() {
       </div>
 
       {/*
-        Light mode: a wider crop whose edges fade into the page (see
-        .hero-photo in globals.css). Dark mode: the bright sky would glow
-        against the dark page, so show the crisp circular crop instead.
+        Light: a wider crop whose edges fade into the page. Dark: the bright
+        sky would glow against the dark page, so a crisp circular crop is
+        shown instead. Which one shows is decided in globals.css from the
+        device setting or the theme switch.
       */}
-      <picture className="order-first block w-full max-w-[220px] justify-self-start min-[821px]:order-none min-[821px]:-ml-[60px] min-[821px]:w-[calc(100%+60px)] min-[821px]:max-w-none min-[821px]:justify-self-end">
-        <source srcSet="/april.jpg" media="(prefers-color-scheme: dark)" />
+      <div className="order-first block w-full max-w-[220px] justify-self-start min-[821px]:order-none min-[821px]:-ml-[60px] min-[821px]:w-[calc(100%+60px)] min-[821px]:max-w-none min-[821px]:justify-self-end">
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
         <img
           src="/april-wide.jpg"
           alt="April Kim smiling on the salt flats"
           width={900}
           height={900}
-          className="hero-photo block aspect-square h-auto w-full object-cover"
+          className="hero-photo-light block aspect-square h-auto w-full object-cover"
         />
-      </picture>
+        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
+        <img
+          src="/april.jpg"
+          alt="April Kim smiling on the salt flats"
+          width={800}
+          height={800}
+          loading="lazy"
+          className="hero-photo-dark aspect-square h-auto w-full object-cover"
+        />
+      </div>
     </div>
   );
 }

@@ -190,26 +190,47 @@ html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
 
 /*
  * Hero photo: in light mode the edges dissolve into the white page so the
- * sky and salt flats read as part of the background. Dark mode swaps in
- * the circular crop (via <picture>) and gets a crisp circle instead.
+ * sky and salt flats read as part of the background. In dark mode the
+ * crisp circular crop shows instead. "Dark" means the theme switch chose
+ * dark, or the device is dark and the switch hasn't chosen light.
  */
-.hero-photo {
+.hero-photo-light {
   -webkit-mask-image: radial-gradient(closest-side at 50% 46%, #000 50%, rgba(0, 0, 0, 0.55) 75%, transparent 100%);
   mask-image: radial-gradient(closest-side at 50% 46%, #000 50%, rgba(0, 0, 0, 0.55) 75%, transparent 100%);
 }
-@media (prefers-color-scheme: dark) {
-  .hero-photo {
-    -webkit-mask-image: none;
-    mask-image: none;
-    border-radius: 9999px;
-    box-shadow: 0 0 0 1px var(--line);
-  }
+.hero-photo-dark {
+  display: none;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 1px var(--line);
 }
-/* The light-mode photo spills its faded edge into the column gap; the
-   dark-mode circle has a hard edge, so keep it inside its own column. */
-@media (prefers-color-scheme: dark) and (min-width: 821px) {
-  .hero-photo {
+/* The faded light photo spills into the column gap; the hard-edged circle
+   stays inside its own column. */
+@media (min-width: 821px) {
+  .hero-photo-dark {
     width: calc(100% - 60px);
     margin-left: 60px;
+  }
+}
+
+.theme-icon-sun {
+  display: none;
+}
+
+:root[data-theme='dark'] .hero-photo-light,
+:root[data-theme='dark'] .theme-icon-moon {
+  display: none;
+}
+:root[data-theme='dark'] .hero-photo-dark,
+:root[data-theme='dark'] .theme-icon-sun {
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .hero-photo-light,
+  :root:not([data-theme='light']) .theme-icon-moon {
+    display: none;
+  }
+  :root:not([data-theme='light']) .hero-photo-dark,
+  :root:not([data-theme='light']) .theme-icon-sun {
+    display: block;
   }
 }
