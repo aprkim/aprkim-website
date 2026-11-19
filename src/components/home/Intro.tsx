@@ -12,8 +12,8 @@ const btn =
 
 export default function Intro() {
   return (
-    <div className="grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1fr_300px] min-[821px]:gap-14 min-[821px]:pt-[72px]">
-      <div>
+    <div className="relative grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1fr_300px] min-[821px]:gap-14 min-[821px]:pt-[72px]">
+      <div className="relative z-10">
         {/*
           Both languages share one grid cell, so the block is always as tall
           as the longer one and nothing below it moves when the language
@@ -71,19 +71,21 @@ export default function Intro() {
       </div>
 
       {/*
-        Light: a wider crop whose edges fade into the page. Dark: the bright
-        sky would glow against the dark page, so a crisp circular crop is
-        shown instead. Which one shows is decided in globals.css from the
-        device setting or the theme switch.
+        Light: a wide landscape crop used as a backdrop. On desktop it bleeds
+        to the right edge of the window and fades out behind the text; on
+        mobile it's a full-width banner that fades at the bottom. Dark: the
+        bright sky would glow against the dark page, so a crisp circular
+        crop shows in the photo column instead. Which one shows is decided in
+        globals.css from the device setting or the theme switch.
       */}
-      <div className="order-first block w-full max-w-[220px] justify-self-start min-[821px]:order-none min-[821px]:-ml-[60px] min-[821px]:w-[calc(100%+60px)] min-[821px]:max-w-none min-[821px]:justify-self-end">
+      <div className="order-first w-full min-[821px]:order-none">
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
         <img
-          src="/april-wide.jpg"
+          src="/april-landscape.jpg"
           alt="April Kim smiling on the salt flats"
-          width={900}
-          height={900}
-          className="hero-photo-light block aspect-square h-auto w-full object-cover"
+          width={1600}
+          height={1200}
+          className="hero-photo-light -mx-6 block aspect-[4/3] w-[calc(100%+48px)] max-w-none object-cover object-[60%_40%] min-[821px]:absolute min-[821px]:inset-y-0 min-[821px]:right-[calc((812px-100vw)/2)] min-[821px]:mx-0 min-[821px]:aspect-auto min-[821px]:h-full min-[821px]:w-[calc(50vw+40px)] min-[821px]:object-[70%_40%]"
         />
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
         <img
@@ -92,7 +94,7 @@ export default function Intro() {
           width={800}
           height={800}
           loading="lazy"
-          className="hero-photo-dark aspect-square h-auto w-full object-cover"
+          className="hero-photo-dark aspect-square h-auto w-full max-w-[220px] object-cover min-[821px]:max-w-none"
         />
       </div>
     </div>
