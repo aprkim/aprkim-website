@@ -46,6 +46,13 @@ const items: Item[] = [
     ko: '간직하고 싶은 카드를, 누가 왜 보냈는지까지 저장해요.',
     side: 'kept.cards ↗',
   },
+  {
+    name: 'Puddle',
+    href: 'https://onpuddle.com',
+    en: 'Hand-picked apps for families, each with a note from me.',
+    ko: '가족을 위한 앱을 골라 제 한 줄 노트와 함께 소개해요.',
+    side: 'onpuddle.com ↗',
+  },
 ];
 
 const whyLink =
@@ -112,20 +119,6 @@ export default function Made() {
           </div>
         </li>
 
-        <li className="border-b border-line">
-          <div className={row}>
-            <b className="font-bold">Puddle</b>
-            <span className={desc}>
-              <L
-                en="Hand-picked apps for families, each with a note from me."
-                ko="가족을 위한 앱을 골라 제 한 줄 노트와 함께 소개해요."
-              />
-            </span>
-            <span className={side}>
-              <L en="Soon" ko="준비 중" />
-            </span>
-          </div>
-        </li>
       </ul>
     </HomeSection>
   );
