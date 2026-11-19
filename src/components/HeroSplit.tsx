@@ -32,7 +32,7 @@ export default function HeroSplit() {
                 href="#subscribe"
                 className="inline-flex items-center justify-center px-6 py-3.5 md:py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium rounded-[var(--radius)] leading-normal md:whitespace-nowrap hover:bg-[var(--color-soft-surface)] transition-colors"
               >
-                Subscribe — it's free
+                Follow my journey
               </a>
             </div>
           </div>
