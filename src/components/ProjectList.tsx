@@ -13,42 +13,66 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'TinyWins',
-    status: 'growing',
-    description: [
-      'TinyWins started with a simple question: Why does growth feel so heavy?',
-      'It\'s a collection of small tools designed to help people move forward — quietly, consistently, and without pressure.',
-      'Start small. Stay human. Let things grow — in public.',
-    ],
-    tags: [],
-    link: 'https://tinywins.space/',
-    ctaLabel: 'Explore TinyWins',
-    secondaryLink: '/projects/tinywins',
-    secondaryCtaLabel: 'Why I built this',
-  },
-  {
     title: 'Tabbi AI',
     status: 'live',
     description: [
       'Tabbi started from my experience as a non-native English speaker — where confidence mattered more than grammar.',
-      'It supports learners without replacing their voice, helping them understand and grow through real use.',
-      'Now, Tabbi is evolving into TabbiMate, focused on connecting learners with real people — because in the AI era, language is learned through human connection.',
+      'It\'s communication help for non-native English speakers. Every correction teaches, so you\'re not fixing the same thing next month.',
     ],
     tags: [],
     link: 'https://tabbi.ai/',
-    ctaLabel: 'View Tabbi AI',
+    ctaLabel: 'tabbi.ai',
+  },
+  {
+    title: 'Liha Books',
+    status: 'live',
+    description:
+      'Children\'s picture books, starting with bilingual Korean–English titles written so each language stands on its own — beginning with Two Languages in My Heart.',
+    tags: [],
+    link: 'https://books.lihallc.com/',
+    ctaLabel: 'books.lihallc.com',
+  },
+  {
+    title: 'Kept Cards',
+    status: 'live',
+    description:
+      'Snap a photo of every greeting card you want to keep. Kept Cards saves the card, who sent it, and the occasion — so handwritten notes from the people you love never get lost.',
+    tags: [],
+    link: 'https://kept.cards/',
+    ctaLabel: 'kept.cards',
+  },
+  {
+    title: 'Puddle',
+    status: 'live',
+    description:
+      'A hand-checked home for small apps parents actually use, each with a note on why it was made.',
+    tags: [],
+    link: 'https://onpuddle.com',
+    ctaLabel: 'onpuddle.com',
+  },
+  {
+    title: 'MentorBench',
+    status: 'live',
+    description:
+      '1:1 video mentorship for scientists. Early-career scientists get real time with mentors who\'ve been there, and mentors give back on their own terms, without the busywork.',
+    tags: [],
+    link: 'https://mentorbench.site/',
+    ctaLabel: 'mentorbench.site',
+  },
+];
+
+const otherProjects = [
+  {
+    title: 'TinyWins',
+    label: 'Personal project',
+    description: 'A collection of small tools for moving forward — quietly, consistently, without pressure.',
+    link: '/projects/tinywins',
   },
   {
     title: 'Fox & Fork',
-    status: 'past',
-    description: [
-      'Fox & Fork is a social network designed around food — how we cook, eat, and connect.',
-      'It gives everyone their own food channel to share recipes, meals, and inspiration, and to build community through food.',
-      'Over time, it evolves into a place where people can plan meals, document their food life, and eventually buy and sell food within trusted networks.',
-    ],
-    tags: [],
+    label: 'Past project',
+    description: 'A social network built around food — how we cook, eat, and connect.',
     link: '/projects/foxnfork',
-    ctaLabel: 'View case study',
   },
 ];
 
@@ -126,7 +150,7 @@ export default function ProjectList() {
     <Section
       id="projects"
       title="Projects"
-      subtitle="Selected work from my journey building products for learning, growth, and human connection."
+      subtitle="What I build and run at Liha, my independent studio — a few good products, each with its own home."
       background="soft"
     >
       <div className="space-y-6">
@@ -195,6 +219,46 @@ export default function ProjectList() {
             )}
           </article>
         ))}
+      </div>
+      <p className="mt-8 text-center text-[var(--color-muted)]">
+        All of these live under{' '}
+        <a
+          href="https://lihallc.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--color-brand)] underline underline-offset-4 hover:no-underline"
+        >
+          Liha LLC
+        </a>
+        .
+      </p>
+      <div className="mt-14">
+        <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--color-muted)] mb-4">
+          Also
+        </h3>
+        <ul className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+          {otherProjects.map((p) => (
+            <li key={p.title}>
+              <a
+                href={p.link}
+                className="group flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 py-4"
+              >
+                <span className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-brand)] transition-colors sm:w-32 flex-shrink-0">
+                  {p.title}
+                </span>
+                <span className="text-xs text-[var(--color-muted)] sm:w-32 flex-shrink-0">
+                  {p.label}
+                </span>
+                <span className="text-[var(--color-muted)] flex-grow">
+                  {p.description}
+                </span>
+                <span className="hidden sm:block text-[var(--color-muted)] group-hover:text-[var(--color-brand)] transition-colors">
+                  <ArrowRightIcon />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </Section>
   );
