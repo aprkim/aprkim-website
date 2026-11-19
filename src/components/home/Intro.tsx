@@ -85,7 +85,7 @@ export default function Intro() {
           alt="April Kim smiling on the salt flats"
           width={1600}
           height={1200}
-          className="hero-photo-light -mx-6 -mt-6 block aspect-[4/3] h-auto w-[calc(100%+48px)] max-w-none object-cover min-[821px]:absolute min-[821px]:right-[calc((812px-100vw)/2)] min-[821px]:top-1/2 min-[821px]:mx-0 min-[821px]:mt-0 min-[821px]:w-[min(calc(50vw+80px),760px)] min-[821px]:-translate-y-[calc(50%+56px)]"
+          className="hero-photo-light -mt-6 mx-auto block aspect-[4/3] h-auto w-[calc((100%+48px)*0.85)] max-w-none object-cover min-[821px]:absolute min-[821px]:right-[calc((812px-100vw)/2)] min-[821px]:top-1/2 min-[821px]:mx-0 min-[821px]:mt-0 min-[821px]:w-[min(calc((50vw+80px)*0.85),646px)] min-[821px]:-translate-y-[calc(50%+56px)]"
         />
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
         <img

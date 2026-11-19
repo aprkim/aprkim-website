@@ -198,9 +198,14 @@ html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
  * dark, or the device is dark and the switch hasn't chosen light.
  */
 .hero-photo-light {
-  /* mobile banner: soft top edge under the header, long fade at the bottom */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 60%, rgba(0, 0, 0, 0.85) 67%, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0.35) 83%, rgba(0, 0, 0, 0.15) 91%, rgba(0, 0, 0, 0.04) 97%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 60%, rgba(0, 0, 0, 0.85) 67%, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0.35) 83%, rgba(0, 0, 0, 0.15) 91%, rgba(0, 0, 0, 0.04) 97%, transparent 100%);
+  /* mobile: soft top edge, long fade at the bottom, and short side fades
+     since the photo no longer spans the full width */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 12%, #000 60%, rgba(0, 0, 0, 0.85) 67%, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0.35) 83%, rgba(0, 0, 0, 0.15) 91%, rgba(0, 0, 0, 0.04) 97%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 12%, #000 60%, rgba(0, 0, 0, 0.85) 67%, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0.35) 83%, rgba(0, 0, 0, 0.15) 91%, rgba(0, 0, 0, 0.04) 97%, transparent 100%);
+  mask-composite: intersect;
 }
 @media (min-width: 821px) {
   /* desktop backdrop: fades out to the left (behind the text) and at the
