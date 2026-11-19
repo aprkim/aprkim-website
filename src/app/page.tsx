@@ -6,15 +6,11 @@ import Subscribe from '@/components/home/Subscribe';
 import WorkWithMe from '@/components/home/WorkWithMe';
 import ContactForm from '@/components/home/ContactForm';
 import SiteFooter from '@/components/home/SiteFooter';
-import Header from '@/components/home/Header';
 
 export default function Home() {
   return (
     <main className="pb-20">
-      <div className="px-gutter">
-        <Header />
-      </div>
-      {/* Full-width hero: text starts on the gutter, photo runs to the right edge */}
+      {/* Full-width hero; the header sits inside it, over the photo */}
       <Intro />
       <div className="px-gutter">
         {/* Sections start on the same line as the hero text; capped for readable line length */}

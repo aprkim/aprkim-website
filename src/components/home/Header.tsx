@@ -18,7 +18,7 @@ function LangSwitch() {
     <div
       role="group"
       aria-label="Language"
-      className="lang-switch relative grid grid-cols-2 rounded-full bg-soft p-[3px] text-[12px] font-semibold tracking-[.04em]"
+      className="lang-switch relative grid grid-cols-2 rounded-full bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] p-[3px] text-[12px] font-semibold tracking-[.04em] shadow-[0_0_0_1px_color-mix(in_srgb,var(--line)_70%,transparent)] backdrop-blur-md"
     >
       <span aria-hidden="true" className="lang-switch-thumb absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full" />
       {options.map((o) => (
@@ -39,9 +39,9 @@ function LangSwitch() {
   );
 }
 
-export default function Header() {
+export default function Header({ divider = true }: { divider?: boolean }) {
   return (
-    <header className="flex items-center justify-between border-b border-line pb-5 pt-7">
+    <header className={`flex items-center justify-between pb-5 pt-7 ${divider ? 'border-b border-line' : ''}`}>
       {/* Plain <a> (not next/link) so clicking reloads the page */}
       <a href="/" className="text-[16px] font-semibold tracking-[-.01em] text-ink no-underline">
         April Kim

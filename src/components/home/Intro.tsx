@@ -1,4 +1,5 @@
 import { L } from './L';
+import Header from './Header';
 
 const social = [
   { label: 'Threads', href: 'https://www.threads.net/@aprkim' },
@@ -14,8 +15,32 @@ export default function Intro() {
   return (
     <section
       aria-label="Introduction"
-      className="mt-8 grid grid-cols-1 min-[769px]:min-h-[clamp(540px,72vh,760px)] min-[769px]:grid-cols-[55%_45%]"
+      className="relative min-[769px]:flex min-[769px]:min-h-[min(100vh,900px)] min-[769px]:flex-col"
     >
+      {/*
+        Photo layer. Desktop: starts at the very top of the page and fills
+        the right ~60% down to the bottom of the hero, wider than the 45%
+        column so the outstretched arm fits; its left side fades under the
+        text and its bottom fades out (.hero-photo, two masks). Phones: a
+        full-width 4:3 photo at the top, under the header.
+      */}
+      <div className="relative aspect-[4/3] w-full min-[769px]:absolute min-[769px]:inset-y-0 min-[769px]:right-0 min-[769px]:aspect-auto min-[769px]:w-[60vw]">
+        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
+        <img
+          src="/april-landscape.jpg"
+          alt="April Kim smiling on the salt flats"
+          width={1600}
+          height={1200}
+          className="hero-photo absolute inset-0 h-full w-full object-cover object-[0%_30%] max-[768px]:object-[50%_30%]"
+        />
+      </div>
+
+      {/* Header over the photo: transparent, no divider here */}
+      <div className="px-gutter absolute inset-x-0 top-0 z-20">
+        <Header divider={false} />
+      </div>
+
+      <div className="relative z-10 grid flex-1 grid-cols-1 min-[769px]:grid-cols-[55%_45%] min-[769px]:pt-[83px]">
       <div className="px-gutter py-10 min-[769px]:flex min-[769px]:flex-col min-[769px]:justify-center min-[769px]:py-16 min-[769px]:pr-12">
         {/*
           Both languages share one grid cell, so the block is always as tall
@@ -73,20 +98,6 @@ export default function Intro() {
         </ul>
       </div>
 
-      {/*
-        Fills the right 45% top to bottom (object-fit: cover), positioned so
-        the face stays in frame; only the left edge fades (.hero-photo).
-        On phones it sits above the text at full width.
-      */}
-      <div className="relative order-first aspect-[4/3] min-[769px]:order-none min-[769px]:aspect-auto">
-        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
-        <img
-          src="/april-landscape.jpg"
-          alt="April Kim smiling on the salt flats"
-          width={1600}
-          height={1200}
-          className="hero-photo absolute inset-0 h-full w-full object-cover object-[58%_30%]"
-        />
       </div>
     </section>
   );

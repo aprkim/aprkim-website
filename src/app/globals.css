@@ -195,13 +195,26 @@ html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
 }
 
 /*
- * Hero photo: fills the right column top to bottom; only its left edge
- * fades into the page. Same photo in light and dark mode.
+ * Hero photo. Masks only change alpha, so the faded parts show the page
+ * background itself (var(--bg)): white in light mode, near-black in dark
+ * mode. Nothing here hard-codes a color.
+ * Bottom ~24% fades out; on desktop the left side also fades so the area
+ * right behind the text is almost fully background. The two masks are
+ * intersected, which makes the bottom-left corner fade smoothly in both
+ * directions.
  */
+.hero-photo {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+}
 @media (min-width: 769px) {
   .hero-photo {
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 22%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0.55) 36%, #000 52%),
+      linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0.55) 36%, #000 52%),
+      linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+    mask-composite: intersect;
   }
 }
 
