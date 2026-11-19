@@ -11,7 +11,7 @@ const links = [
     icon: 'youtube',
     title: 'YouTube',
     description: 'Building, learning, and reflecting — in my own words',
-    url: 'https://www.youtube.com/@aprilgrow',
+    url: 'https://www.youtube.com/@aprkim',
   },
   {
     icon: 'book',

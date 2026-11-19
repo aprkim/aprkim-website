@@ -11,4 +11,5 @@ export { default as PersonalSection } from './PersonalSection';
 export { default as LinksSection } from './LinksSection';
 export { default as ClosingStatement } from './ClosingStatement';
 export { default as ContactSection } from './ContactSection';
+export { default as SubscribeSection } from './SubscribeSection';
 export { default as Footer } from './Footer';

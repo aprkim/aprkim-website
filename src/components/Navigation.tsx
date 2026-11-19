@@ -7,6 +7,7 @@ const navItems = [
   { id: 'story', label: 'Story' },
   { id: 'opportunities', label: 'Work with me' },
   { id: 'links', label: 'Links' },
+  { id: 'subscribe', label: 'Subscribe' },
 ];
 
 function MenuIcon() {
