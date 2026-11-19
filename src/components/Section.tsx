@@ -19,14 +19,14 @@ export default function Section({
 }: SectionProps) {
   const bgClasses = {
     default: 'bg-[var(--color-background)]',
-    soft: 'bg-[var(--color-soft-surface)]',
+    soft: 'bg-[var(--color-brand-soft)]',
     brand: 'bg-[var(--color-brand-soft)]',
   };
 
   return (
     <section
       id={id}
-      className={`py-16 md:py-24 ${bgClasses[background]} ${className}`}
+      className={`py-20 md:py-28 ${bgClasses[background]} ${className}`}
       aria-labelledby={title ? `${id}-heading` : undefined}
     >
       <div className="mx-auto max-w-[980px] px-5 md:px-8">
@@ -35,7 +35,7 @@ export default function Section({
             <div className="flex items-center gap-3">
               <h2
                 id={`${id}-heading`}
-                className="text-2xl md:text-3xl font-semibold text-[var(--color-brand)]"
+                className="text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-text)]"
               >
                 {title}
               </h2>

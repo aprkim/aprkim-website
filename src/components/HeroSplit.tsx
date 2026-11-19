@@ -2,7 +2,7 @@ export default function HeroSplit() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center pt-28 pb-16 md:pt-36 md:pb-24 bg-[var(--color-background)]"
+      className="flex items-center pt-28 pb-20 md:pt-40 md:pb-32 bg-[var(--color-background)]"
       aria-labelledby="hero-heading"
     >
       <div className="mx-auto max-w-[980px] px-5 md:px-8 w-full">

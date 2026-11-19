@@ -226,9 +226,6 @@ export default function LinksSection() {
           );
         })}
       </div>
-      <p className="mt-8 text-center text-[var(--color-muted)] italic">
-        If any of this resonates, this is where I continue the conversation.
-      </p>
     </Section>
   );
 }

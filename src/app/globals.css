@@ -4,16 +4,16 @@
 
 :root {
   /* Base colors */
-  --color-background: #f7f9f8;
+  --color-background: #ffffff;
   --color-card: #ffffff;
   --color-soft-surface: #f0f4f3;
   --color-border: #e2e8f0;
   --color-text: #1e293b;
-  --color-muted: #64748b;
+  --color-muted: #4b5563;
 
   /* Brand colors */
   --color-brand: #6E6282;
-  --color-brand-soft: #F7F5FA;
+  --color-brand-soft: #F4F1F8;
 
   /* Accent colors */
   --color-accent: #BF3143;

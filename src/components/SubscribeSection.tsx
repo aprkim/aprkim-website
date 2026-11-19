@@ -4,7 +4,7 @@ export default function SubscribeSection() {
   return (
     <section
       id="subscribe"
-      className="py-20 md:py-28 bg-[var(--color-background)]"
+      className="py-16 md:py-20 bg-[var(--color-background)]"
       aria-labelledby="subscribe-heading"
     >
       <div className="mx-auto max-w-[980px] px-5 md:px-8">

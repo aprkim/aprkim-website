@@ -4,7 +4,6 @@ import {
   ProjectList,
   StoryBlock,
   OpportunitiesGrid,
-  PersonalSection,
   LinksSection,
   SubscribeSection,
   Footer,
@@ -17,11 +16,10 @@ export default function Home() {
       <main id="main-content">
         <HeroSplit />
         <ProjectList />
+        <SubscribeSection />
         <StoryBlock />
         <OpportunitiesGrid />
-        <PersonalSection />
         <LinksSection />
-        <SubscribeSection />
       </main>
       <Footer />
     </>

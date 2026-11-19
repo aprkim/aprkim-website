@@ -116,36 +116,6 @@ function ArrowRightIcon() {
   );
 }
 
-function StatusBadge({ status }: { status: string }) {
-  const styles = {
-    active: 'bg-[var(--color-success-bg)] text-[var(--color-success-text)] border-[var(--color-success-border)]',
-    growing: 'bg-[var(--color-success-bg)] text-[var(--color-success-text)] border-[var(--color-success-border)]',
-    live: 'bg-[var(--color-brand-soft)] text-[var(--color-brand)] border-[var(--color-brand)]',
-    shipped: 'bg-[var(--color-brand-soft)] text-[var(--color-brand)] border-[var(--color-brand)]',
-    past: 'bg-[var(--color-soft-surface)] text-[var(--color-muted)] border-[var(--color-border)]',
-    archived: 'bg-[var(--color-soft-surface)] text-[var(--color-muted)] border-[var(--color-border)]',
-  };
-
-  const labels = {
-    active: 'Active',
-    growing: 'Growing',
-    live: 'In the wild',
-    shipped: 'Shipped',
-    past: 'Past exploration',
-    archived: 'Archived',
-  };
-
-  return (
-    <span
-      className={`inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border ${
-        styles[status as keyof typeof styles]
-      }`}
-    >
-      {labels[status as keyof typeof labels]}
-    </span>
-  );
-}
-
 export default function ProjectList() {
   return (
     <Section
@@ -154,72 +124,51 @@ export default function ProjectList() {
       subtitle="What I build and run at Liha, my independent studio — a few good products, each with its own home."
       background="soft"
     >
-      <div className="space-y-6">
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className="card-hover group p-6 md:p-8 bg-[var(--color-card)] border border-[var(--color-border)] rounded-[var(--radius)]"
-          >
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-              <div className="flex items-center gap-4">
-                <h3 className="text-xl font-semibold text-[var(--color-text)]">
-                  {project.title}
-                </h3>
-                <StatusBadge status={project.status} />
-              </div>
-              <div className="flex items-center gap-4">
-                <a
-                  href={project.link}
-                  target={project.link.startsWith('http') ? '_blank' : undefined}
-                  rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
-                  aria-label={`View ${project.title} project`}
-                >
-                  {project.ctaLabel || 'View project'}
-                  {project.link.startsWith('http') && <ExternalLinkIcon />}
-                  {!project.link.startsWith('http') && <ArrowRightIcon />}
-                </a>
-                {project.secondaryLink && (
-                  <a
-                    href={project.secondaryLink}
-                    target={project.secondaryLink.startsWith('http') ? '_blank' : undefined}
-                    rel={project.secondaryLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
+      <div className="grid md:grid-cols-2 gap-6">
+        {projects.map((project, index) => {
+          const featured = index === 0;
+          const paragraphs = Array.isArray(project.description)
+            ? project.description
+            : [project.description];
+          return (
+            <a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`card-hover group flex flex-col bg-[var(--color-card)] border border-[var(--color-border)] rounded-[var(--radius)] ${
+                featured ? 'md:col-span-2 p-8 md:p-10' : 'p-6 md:p-8'
+              }`}
+            >
+              {featured && (
+                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand)] mb-3">
+                  Flagship
+                </span>
+              )}
+              <h3
+                className={`font-bold tracking-tight text-[var(--color-text)] group-hover:text-[var(--color-brand)] transition-colors ${
+                  featured ? 'text-3xl mb-4' : 'text-xl mb-3'
+                }`}
+              >
+                {project.title}
+              </h3>
+              <div className={`space-y-3 flex-grow ${featured ? 'max-w-2xl' : ''}`}>
+                {(featured ? paragraphs : paragraphs.slice(-1)).map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className={`leading-relaxed text-[var(--color-muted)] ${featured ? 'text-lg' : ''}`}
                   >
-                    {project.secondaryCtaLabel || 'Learn more'}
-                    {project.secondaryLink.startsWith('http') && <ExternalLinkIcon />}
-                    {!project.secondaryLink.startsWith('http') && <ArrowRightIcon />}
-                  </a>
-                )}
-              </div>
-            </div>
-            <div className="space-y-3 mb-4 max-w-2xl">
-              {Array.isArray(project.description) ? (
-                project.description.map((paragraph, index) => (
-                  <p key={index} className="text-[var(--color-muted)] leading-relaxed">
                     {paragraph}
                   </p>
-                ))
-              ) : (
-                <p className="text-[var(--color-muted)] leading-relaxed">
-                  {project.description}
-                </p>
-              )}
-            </div>
-            {project.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-sm bg-[var(--color-soft-surface)] text-[var(--color-text)] rounded-full"
-                  >
-                    {tag}
-                  </span>
                 ))}
               </div>
-            )}
-          </article>
-        ))}
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-brand)]">
+                {project.ctaLabel}
+                <ExternalLinkIcon />
+              </span>
+            </a>
+          );
+        })}
       </div>
       <p className="mt-8 text-center text-[var(--color-muted)]">
         All of these live under{' '}

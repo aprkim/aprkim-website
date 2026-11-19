@@ -123,7 +123,11 @@ export default function Navigation() {
                       e.preventDefault();
                       handleNavClick(item.id);
                     }}
-                    className="text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
+                    className={
+                      item.id === 'subscribe'
+                        ? 'text-sm font-medium px-4 py-2 rounded-full bg-[var(--color-brand)] text-white hover:opacity-90 transition-opacity'
+                        : 'text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors'
+                    }
                   >
                     {item.label}
                   </a>
