@@ -1,12 +1,17 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import ThemeToggle from '@/components/ThemeToggle';
 
-const inter = Inter({
+/*
+ * Inter, self-hosted (variable, Latin subset, from @fontsource-variable/inter
+ * 5.3.0, SIL OFL; see fonts/Inter-OFL.txt). Loading it from Google at build
+ * time broke CI when next/font couldn't parse Google's response.
+ */
+const inter = localFont({
+  src: './fonts/InterVariable-latin.woff2',
   variable: '--font-inter',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: '100 900',
   display: 'swap',
 });
 
