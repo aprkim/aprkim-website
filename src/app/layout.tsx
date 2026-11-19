@@ -9,11 +9,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aprkim.com'),
-  title: 'April Kim — Founder, Engineer, Designer',
+  title: 'April Kim — Immigrant founder building in public',
   description:
-    'I build things that matter. Founder, engineer, and designer focused on creating thoughtful products that serve real people.',
+    'I\'m April — immigrant founder of Liha, building products and learning communities that help people grow.',
   keywords: [
     'April Kim',
+    'building in public',
+    'immigrant founder',
     'founder',
     'engineer',
     'designer',
@@ -23,9 +25,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'April Kim' }],
   openGraph: {
-    title: 'April Kim — Founder, Engineer, Designer',
+    title: 'April Kim — Immigrant founder building in public',
     description:
-      'I build things that matter. Founder, engineer, and designer focused on creating thoughtful products that serve real people.',
+      'I\'m April — immigrant founder of Liha, building products and learning communities that help people grow.',
     url: 'https://aprkim.com',
     siteName: 'April Kim',
     locale: 'en_US',
@@ -41,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'April Kim — Founder, Engineer, Designer',
+    title: 'April Kim — Immigrant founder building in public',
     description:
-      'I build things that matter. Founder, engineer, and designer focused on creating thoughtful products that serve real people.',
+      'I\'m April — immigrant founder of Liha, building products and learning communities that help people grow.',
     creator: '@aprkim',
     images: ['/og.png'],
   },
