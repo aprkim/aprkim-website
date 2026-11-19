@@ -2,6 +2,7 @@ import Intro from '@/components/home/Intro';
 import Latest from '@/components/home/Latest';
 import Made from '@/components/home/Made';
 import WhyIBuild from '@/components/home/WhyIBuild';
+import Subscribe from '@/components/home/Subscribe';
 import WorkWithMe from '@/components/home/WorkWithMe';
 import ContactForm from '@/components/home/ContactForm';
 import SiteFooter from '@/components/home/SiteFooter';
@@ -15,6 +16,7 @@ export default function Home() {
       <Latest />
       <Made />
       <WhyIBuild />
+      <Subscribe />
       <WorkWithMe />
       <ContactForm />
       <SiteFooter />

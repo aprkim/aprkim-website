@@ -1,22 +1,15 @@
 'use client';
 
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import HomeSection from './Section';
 import { L } from './L';
 import { useLang } from './lang';
 import { CONTACT_EMAIL } from './WorkWithMe';
+import { TOPIC_EVENT, topics } from './topic';
 
 /* Existing backend: Formspree forwards submissions to hello@aprkim.com. */
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgoavboa';
 
-/* value is what lands in the email subject; en/ko are the visible labels */
-const topics = [
-  { value: 'Brand partnership', en: 'Brand partnership', ko: '브랜드 협업' },
-  { value: 'Speaking', en: 'Speaking', ko: '강연 · 워크숍' },
-  { value: 'Product advising', en: 'Product advising', ko: '제품 · UX 자문' },
-  { value: 'Co-creation', en: 'Co-creation', ko: '공동 제작' },
-  { value: 'Just saying hi', en: 'Just saying hi', ko: '그냥 인사' },
-];
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -35,6 +28,25 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [invalid, setInvalid] = useState(false);
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [topic, setTopic] = useState('');
+
+  // Work with me rows preselect a topic here (see TopicLink).
+  useEffect(() => {
+    const onTopic = (e: Event) => {
+      const value = (e as CustomEvent<string>).detail;
+      if (!topics.some((t) => t.value === value)) return;
+      setTopic(value);
+      setStatus((s) => (s === 'success' ? 'idle' : s));
+      // Focus after the smooth scroll has mostly finished, without jumping.
+      window.setTimeout(() => messageRef.current?.focus({ preventScroll: true }), 450);
+    };
+    window.addEventListener(TOPIC_EVENT, onTopic);
+    return () => window.removeEventListener(TOPIC_EVENT, onTopic);
+  }, []);
+
+  const current = topics.find((t) => t.value === topic);
+  const hint = current ? (ko ? current.hintKo : current.hintEn) : undefined;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,6 +86,7 @@ export default function ContactForm() {
       });
       if (res.ok) {
         form.reset();
+        setTopic('');
         setStatus('success');
       } else {
         setStatus('error');
@@ -140,7 +153,8 @@ export default function ContactForm() {
             <select
               id="f-topic"
               name="topic"
-              defaultValue=""
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
               disabled={busy}
               className={`${field} cursor-pointer appearance-none pr-11`}
             >
@@ -173,7 +187,9 @@ export default function ContactForm() {
           <label htmlFor="f-msg" className={label}>
             <L en="Message" ko="메시지" />
             <textarea
+              ref={messageRef}
               id="f-msg"
+              placeholder={hint}
               name="message"
               required
               disabled={busy}
@@ -203,7 +219,10 @@ export default function ContactForm() {
                 ko={<>전송에 실패했어요. 다시 시도하거나 {CONTACT_EMAIL} 으로 보내주세요.</>}
               />
             ) : (
-              <L en="Your email is only used to reply." ko="이메일은 답장에만 써요." />
+              <L
+                en="I usually reply within 2 to 3 days. Your email is only used to reply."
+                ko="보통 2~3일 안에 직접 답장드려요. 이메일은 답장에만 써요."
+              />
             )}
           </p>
         </form>
