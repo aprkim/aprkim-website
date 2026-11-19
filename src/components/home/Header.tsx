@@ -18,9 +18,9 @@ function LangSwitch() {
     <div
       role="group"
       aria-label="Language"
-      className="lang-switch relative grid grid-cols-2 rounded-full border border-line p-[3px] text-[12px] font-semibold tracking-[.04em]"
+      className="lang-switch relative grid grid-cols-2 rounded-full bg-soft p-[3px] text-[12px] font-semibold tracking-[.04em]"
     >
-      <span aria-hidden="true" className="lang-switch-thumb absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full bg-ink" />
+      <span aria-hidden="true" className="lang-switch-thumb absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full" />
       {options.map((o) => (
         <button
           key={o.lang}

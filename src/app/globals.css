@@ -153,7 +153,19 @@ html[data-lang='ko'] .lang-stack > .en {
  * on page load, only when switching.
  */
 .lang-switch-thumb {
+  background: var(--bg);
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.08), 0 0 0 1px var(--line);
   transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .lang-switch-thumb {
+    background: #2a2a2a;
+    box-shadow: none;
+  }
+}
+:root[data-theme='dark'] .lang-switch-thumb {
+  background: #2a2a2a;
+  box-shadow: none;
 }
 html[data-lang='ko'] .lang-switch-thumb {
   transform: translateX(100%);
@@ -167,7 +179,7 @@ html[data-lang='ko'] .lang-switch-thumb {
 }
 html[data-lang='en'] .lang-switch [data-lang-option='en'],
 html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
-  color: var(--bg);
+  color: var(--ink);
 }
 @media (prefers-reduced-motion: reduce) {
   .lang-switch-thumb,
