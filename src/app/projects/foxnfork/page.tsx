@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Fox & Fork — Case Study | April Kim',
+  title: 'Fox & Fork: Case Study | April Kim',
   description:
     'A past exploration in food, community, and human connection. Learn about the journey of building Fox & Fork.',
 };
@@ -74,11 +74,11 @@ export default function FoxNForkPage() {
       <article className="mx-auto max-w-[980px] px-5 md:px-8">
         {/* Back link */}
         <Link
-          href="/#projects"
+          href="/"
           className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors mb-12"
         >
           <ArrowLeftIcon />
-          Back to Projects
+          Back to home
         </Link>
 
         {/* Header */}
@@ -196,11 +196,11 @@ export default function FoxNForkPage() {
 
         {/* Back link (bottom) */}
         <Link
-          href="/#projects"
+          href="/"
           className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
         >
           <ArrowLeftIcon />
-          Back to Projects
+          Back to home
         </Link>
       </article>
     </main>

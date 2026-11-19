@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'TinyWins — Living System | April Kim',
+  title: 'TinyWins: Living System | April Kim',
   description:
     'A living system of small tools, ideas, and rituals for steady growth. Built in public by April Kim.',
 };
@@ -126,11 +126,11 @@ export default function TinyWinsPage() {
       <article className="mx-auto max-w-[980px] px-5 md:px-8">
         {/* Back link */}
         <Link
-          href="/#projects"
+          href="/"
           className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors mb-12"
         >
           <ArrowLeftIcon />
-          Back to Projects
+          Back to home
         </Link>
 
         {/* Header */}
@@ -159,7 +159,7 @@ export default function TinyWinsPage() {
             </p>
             <p>Not louder. Not faster. Just more sustainable.</p>
             <p>
-              I believe most growth happens in small moments — the ones we repeat
+              I believe most growth happens in small moments, the ones we repeat
               when no one is watching.
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function TinyWinsPage() {
           </h2>
           <p className="text-lg text-[var(--color-muted)] leading-relaxed max-w-3xl">
             TinyWins is not one app. It&apos;s a collection of small tools and
-            experiments designed to reduce friction and increase follow-through —
+            experiments designed to reduce friction and increase follow-through,
             especially for people who are building, learning, or starting again.
           </p>
         </section>
@@ -202,8 +202,8 @@ export default function TinyWinsPage() {
             What&apos;s &quot;in public&quot; here
           </h2>
           <p className="text-lg text-[var(--color-muted)] leading-relaxed max-w-3xl">
-            When I say &quot;in public,&quot; I mean I share the process — the
-            experiments, the tradeoffs, and the lessons — while it&apos;s still in
+            When I say &quot;in public,&quot; I mean I share the process (the
+            experiments, the tradeoffs, and the lessons) while it&apos;s still in
             motion. Not as a performance, but as a way to stay honest and connected
             to real people.
           </p>
@@ -288,11 +288,11 @@ export default function TinyWinsPage() {
 
         {/* Back link (bottom) */}
         <Link
-          href="/#projects"
+          href="/"
           className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-brand)] transition-colors"
         >
           <ArrowLeftIcon />
-          Back to Projects
+          Back to home
         </Link>
       </article>
     </main>

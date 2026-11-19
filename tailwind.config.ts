@@ -9,6 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        bg: 'var(--bg)',
+        ink: 'var(--ink)',
+        line: 'var(--line)',
+        violet: 'var(--accent)',
+        soft: 'var(--soft)',
         background: 'var(--color-background)',
         card: 'var(--color-card)',
         'soft-surface': 'var(--color-soft-surface)',
@@ -32,8 +37,7 @@ const config: Config = {
         container: '980px',
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-stack)'],
       },
     },
   },

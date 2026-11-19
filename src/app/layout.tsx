@@ -3,49 +3,50 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
-  variable: '--font-geist-sans',
+  variable: '--font-inter',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
 });
+
+const title = 'April Kim';
+const description =
+  'April Kim: a Korean immigrant mom who builds apps, writes bilingual picture books, and shares it all on YouTube, Threads and Substack. Open to brand partnerships, speaking and co-creation.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aprkim.com'),
-  title: 'April Kim — Immigrant founder building in public',
-  description:
-    'I\'m April — immigrant founder of Liha, building products and learning communities that help people grow.',
+  title,
+  description,
   keywords: [
     'April Kim',
+    'bilingual picture books',
+    'Korean immigrant mom',
+    'vibecoding',
     'building in public',
-    'immigrant founder',
-    'founder',
-    'engineer',
-    'designer',
-    'software engineering',
-    'product design',
-    'startup',
+    'brand partnerships',
   ],
   authors: [{ name: 'April Kim' }],
   openGraph: {
-    title: 'April Kim — Immigrant founder building in public',
-    description:
-      'I\'m April — immigrant founder of Liha, building products and learning communities that help people grow.',
+    title,
+    description,
     url: 'https://aprkim.com',
     siteName: 'April Kim',
     locale: 'en_US',
+    alternateLocale: ['ko_KR'],
     type: 'website',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'April Kim — immigrant founder building things that help people grow',
+        alt: 'April Kim smiling on the salt flats',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'April Kim — Immigrant founder building in public',
-    description:
-      'I\'m April — immigrant founder of Liha, building products and learning communities that help people grow.',
+    title,
+    description,
     creator: '@aprkim',
     images: ['/og.png'],
   },
@@ -55,16 +56,28 @@ export const metadata: Metadata = {
   },
 };
 
+/*
+ * Runs before first paint so the page never flashes the wrong language.
+ * Priority: #ko / #en in the URL, then the saved choice, then the browser
+ * language (Korean browsers default to Korean), then English.
+ */
+const langScript = `(function(){try{var r=document.documentElement,s=null;try{s=localStorage.getItem('aprkim-lang')}catch(e){}if(location.hash==='#ko')s='ko';if(location.hash==='#en')s='en';if(s!=='ko'&&s!=='en')s=(navigator.language||'').toLowerCase().indexOf('ko')===0?'ko':'en';r.setAttribute('data-lang',s);r.setAttribute('lang',s)}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        {children}
-      </body>
+    <html lang="en" data-lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: langScript }} />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
