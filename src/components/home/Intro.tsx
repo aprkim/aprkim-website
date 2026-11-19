@@ -71,31 +71,17 @@ export default function Intro() {
       </div>
 
       {/*
-        Light: the arm-raised photo sits inside the content grid, its right
-        edge on the end of the header divider. Only the outer sky edges fade
-        (see .hero-photo-light); the arm, hand and body stay fully opaque.
-        Dark: the bright sky would glow on a dark page, so the crisp circular
-        crop shows instead. Which one shows is decided in globals.css.
+        Arm-raised photo cut as a large circle (sky extended above the
+        original frame so the raised hand fits). Same image in both themes.
       */}
-      <div className="order-first w-full min-[821px]:order-none min-[821px]:self-start">
-        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
-        <img
-          src="/april-hero.jpg"
-          alt="April Kim waving on the salt flats"
-          width={960}
-          height={768}
-          className="hero-photo-light mt-2 block aspect-[5/4] h-auto w-full object-cover min-[821px]:mt-0"
-        />
-        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
-        <img
-          src="/april.jpg"
-          alt="April Kim smiling on the salt flats"
-          width={800}
-          height={800}
-          loading="lazy"
-          className="hero-photo-dark aspect-square h-auto w-full max-w-[220px] object-cover min-[821px]:ml-auto min-[821px]:max-w-[300px]"
-        />
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
+      <img
+        src="/april-circle.jpg"
+        alt="April Kim waving on the salt flats"
+        width={900}
+        height={900}
+        className="order-first block aspect-square h-auto w-full max-w-[260px] justify-self-start rounded-full object-cover shadow-[0_0_0_1px_var(--line)] min-[821px]:order-none min-[821px]:max-w-none min-[821px]:self-start"
+      />
     </div>
   );
 }
