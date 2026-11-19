@@ -185,7 +185,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={busy}
-            className="inline-flex cursor-pointer items-center gap-2 justify-self-start rounded-[14px] border-0 bg-violet px-6 py-[14px] text-base font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            className="inline-flex cursor-pointer items-center gap-2 justify-self-start rounded-[14px] border-0 bg-violet px-6 py-[14px] text-base font-semibold btn-primary transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
           >
             {busy ? (
               <L en="Sending..." ko="보내는 중..." />
