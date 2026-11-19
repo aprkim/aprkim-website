@@ -18,7 +18,11 @@ export default function HeroSplit() {
               <span className="text-[#5d5473] font-extrabold">grow</span>.
             </h1>
             <p className="text-lg md:text-xl text-[var(--color-muted)] leading-[1.75] mb-10 max-w-lg">
-              I&apos;m April — an immigrant founder building products and learning communities for real people.
+              I&apos;m April — immigrant founder of{' '}
+              <a href="https://lihallc.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-brand)] underline decoration-1 underline-offset-4 hover:no-underline">
+                Liha
+              </a>
+              , building products and learning communities for real people.
             </p>
             <div className="flex flex-col md:flex-row gap-3 md:gap-4">
               <a
