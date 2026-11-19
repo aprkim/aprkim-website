@@ -18,6 +18,7 @@ const projects: Project[] = [
     description: [
       'Tabbi started from my experience as a non-native English speaker — where confidence mattered more than grammar.',
       'It\'s communication help for non-native English speakers. Every correction teaches, so you\'re not fixing the same thing next month.',
+      'Now, Tabbi is evolving into TabbiMate, focused on connecting learners with real people — because in the AI era, language is learned through human connection.',
     ],
     tags: [],
     link: 'https://tabbi.ai/',
