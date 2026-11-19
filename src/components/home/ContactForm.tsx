@@ -136,7 +136,14 @@ export default function ContactForm() {
 
           <label htmlFor="f-topic" className={label}>
             <L en="Topic" ko="주제" />
-            <select id="f-topic" name="topic" defaultValue="" disabled={busy} className={field}>
+            <span className="relative block">
+            <select
+              id="f-topic"
+              name="topic"
+              defaultValue=""
+              disabled={busy}
+              className={`${field} cursor-pointer appearance-none pr-11`}
+            >
               <option value="" disabled>
                 {ko ? '주제를 골라주세요' : 'Choose a topic'}
               </option>
@@ -146,6 +153,21 @@ export default function ContactForm() {
                 </option>
               ))}
             </select>
+            <svg
+              aria-hidden="true"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+            </span>
           </label>
 
           <label htmlFor="f-msg" className={label}>
@@ -168,9 +190,7 @@ export default function ContactForm() {
             {busy ? (
               <L en="Sending..." ko="보내는 중..." />
             ) : (
-              <>
-                <L en="Send" ko="보내기" /> <span aria-hidden="true">→</span>
-              </>
+              <L en="Send" ko="보내기" />
             )}
           </button>
 

@@ -136,3 +136,13 @@ html[data-lang='ko'] body {
     transform: none;
   }
 }
+
+/*
+ * .lang-stack: keep the inactive language in the layout (invisible) so
+ * switching languages doesn't change the block's height.
+ */
+html[data-lang='en'] .lang-stack > .ko,
+html[data-lang='ko'] .lang-stack > .en {
+  display: block;
+  visibility: hidden;
+}

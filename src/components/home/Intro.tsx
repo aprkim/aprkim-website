@@ -14,21 +14,31 @@ export default function Intro() {
   return (
     <div className="grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1.15fr_1fr] min-[821px]:gap-14 min-[821px]:pt-[72px]">
       <div>
-        <h1 className="m-0 font-extrabold [text-wrap:balance]">
-          <span className="en block text-[clamp(38px,7vw,60px)] leading-[1.08] tracking-[-.02em]">
-            I build things that help families <span className="text-violet">grow</span>.
-          </span>
-          <span className="ko block text-[clamp(32px,5.6vw,46px)] leading-[1.3] tracking-[-.01em]">
-            아이와 함께 <span className="text-violet">자라며</span>, 필요한 걸 직접 만드는 엄마.
-          </span>
-        </h1>
-
-        <p className="mt-6 max-w-[56ch] text-[19px] leading-[1.6] text-muted">
-          <L
-            en="I'm April, a Korean immigrant mom in the Bay Area raising a trilingual daughter. I make apps with AI, write bilingual picture books, and share the journey along the way."
-            ko="베이 지역에서 세 언어로 딸을 키우는 한국인 이민자 엄마, 에이프릴이에요. AI로 앱을 만들고, 이중언어 그림책을 쓰고, 그 과정을 나눕니다."
-          />
-        </p>
+        {/*
+          Both languages share one grid cell, so the block is always as tall
+          as the longer one and nothing below it moves when the language
+          changes. The shorter one sits at the bottom, next to the buttons.
+        */}
+        <div className="lang-stack grid">
+          <div className="en self-end [grid-area:1/1]">
+            <h1 className="m-0 text-[clamp(38px,7vw,60px)] font-extrabold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+              I build things that help families <span className="text-violet">grow</span>.
+            </h1>
+            <p className="mb-0 mt-6 max-w-[56ch] text-[19px] leading-[1.6] text-muted">
+              I&apos;m April, a Korean immigrant mom in the Bay Area raising a trilingual daughter. I
+              make apps with AI, write bilingual picture books, and share the journey along the way.
+            </p>
+          </div>
+          <div className="ko self-end [grid-area:1/1]">
+            <h1 className="m-0 text-[clamp(32px,5.6vw,46px)] font-extrabold leading-[1.3] tracking-[-.01em] [text-wrap:balance]">
+              아이와 함께 <span className="text-violet">자라며</span>, 필요한 걸 직접 만드는 엄마.
+            </h1>
+            <p className="mb-0 mt-6 max-w-[56ch] text-[19px] leading-[1.6] text-muted">
+              베이 지역에서 세 언어로 딸을 키우는 한국인 이민자 엄마, 에이프릴이에요. AI로 앱을
+              만들고, 이중언어 그림책을 쓰고, 그 과정을 나눕니다.
+            </p>
+          </div>
+        </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <a href="#work-with-me" className={`${btn} border-violet bg-violet text-white`}>
