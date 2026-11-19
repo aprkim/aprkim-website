@@ -204,17 +204,29 @@ html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
  * directions.
  */
 .hero-photo {
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+  /* phones: photo starts below the header; soft top edge, bottom fade */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 76%, transparent 100%);
 }
 @media (min-width: 769px) {
+  /* Layers, composited bottom-up:
+     1. left fade: almost nothing behind the text, opaque from ~56%
+     2. + (add) a soft ellipse around the raised arm and hand, which sit
+        above the text, so they stay visible inside the faded area
+     3. x (intersect) the bottom fade
+     4. x (intersect) a short fade at the photo's left edge, so the
+        ellipse never shows a hard vertical line there */
   .hero-photo {
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0.55) 36%, #000 52%),
-      linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0.55) 36%, #000 52%),
-      linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
-    mask-composite: intersect;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%),
+      linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%),
+      radial-gradient(ellipse 24% 24% at 19% 21%, #000 55%, transparent 100%),
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 27%, rgba(0, 0, 0, 0.55) 42%, #000 56%);
+    -webkit-mask-composite: source-in, source-in, source-over;
+    mask-image: linear-gradient(to right, transparent 0%, #000 16%),
+      linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%),
+      radial-gradient(ellipse 24% 24% at 19% 21%, #000 55%, transparent 100%),
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 27%, rgba(0, 0, 0, 0.55) 42%, #000 56%);
+    mask-composite: intersect, intersect, add;
   }
 }
 
