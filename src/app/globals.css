@@ -218,6 +218,25 @@ html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
   }
 }
 
+/* Light: backdrop photo. Dark: circle (device setting or theme switch). */
+.hero-circle {
+  display: none;
+}
+:root[data-theme='dark'] .hero-backdrop {
+  display: none;
+}
+:root[data-theme='dark'] .hero-circle {
+  display: flex;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .hero-backdrop {
+    display: none;
+  }
+  :root:not([data-theme='light']) .hero-circle {
+    display: flex;
+  }
+}
+
 /*
  * Primary (lavender) buttons: white text in light mode; in dark mode the
  * lavender is much lighter, so the text switches to dark navy for contrast.

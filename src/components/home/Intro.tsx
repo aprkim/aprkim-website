@@ -24,7 +24,7 @@ export default function Intro() {
         text and its bottom fades out (.hero-photo, two masks). Phones: a
         full-width 4:3 photo at the top, under the header.
       */}
-      <div className="relative aspect-[4/3] w-full min-[769px]:absolute min-[769px]:inset-y-0 min-[769px]:right-0 min-[769px]:aspect-auto min-[769px]:w-[60vw]">
+      <div className="hero-backdrop relative aspect-[4/3] w-full min-[769px]:absolute min-[769px]:inset-y-0 min-[769px]:right-0 min-[769px]:aspect-auto min-[769px]:w-[60vw]">
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
         <img
           src="/april-landscape.jpg"
@@ -98,6 +98,23 @@ export default function Intro() {
         </ul>
       </div>
 
+
+      {/*
+        Dark mode only: the bright backdrop would glow on a dark page, so a
+        crisp circle sits in the right column instead (see .hero-circle).
+        On phones it comes first, below the header.
+      */}
+      <div className="hero-circle order-first items-center px-gutter pt-[88px] min-[769px]:order-none min-[769px]:pl-0 min-[769px]:justify-end min-[769px]:pt-0">
+        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
+        <img
+          src="/april.jpg"
+          alt="April Kim smiling on the salt flats"
+          width={800}
+          height={800}
+          loading="lazy"
+          className="block aspect-square h-auto w-full max-w-[220px] rounded-full object-cover shadow-[0_0_0_1px_var(--line)] min-[769px]:max-w-[300px]"
+        />
+      </div>
       </div>
     </section>
   );
