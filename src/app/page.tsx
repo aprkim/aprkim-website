@@ -10,16 +10,24 @@ import Header from '@/components/home/Header';
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-[860px] px-6 pb-20">
-      <Header />
+    <main className="pb-20">
+      <div className="px-gutter">
+        <Header />
+      </div>
+      {/* Full-width hero: text starts on the gutter, photo runs to the right edge */}
       <Intro />
-      <Latest />
-      <Made />
-      <WhyIBuild />
-      <Subscribe />
-      <WorkWithMe />
-      <ContactForm />
-      <SiteFooter />
+      <div className="px-gutter">
+        {/* Sections start on the same line as the hero text; capped for readable line length */}
+        <div className="max-w-[860px]">
+          <Latest />
+          <Made />
+          <WhyIBuild />
+          <Subscribe />
+          <WorkWithMe />
+          <ContactForm />
+          <SiteFooter />
+        </div>
+      </div>
     </main>
   );
 }

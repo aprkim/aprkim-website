@@ -12,8 +12,11 @@ const btn =
 
 export default function Intro() {
   return (
-    <div className="relative grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1fr_300px] min-[821px]:gap-14 min-[821px]:pt-[72px]">
-      <div className="relative z-10">
+    <section
+      aria-label="Introduction"
+      className="mt-8 grid grid-cols-1 min-[769px]:min-h-[clamp(540px,72vh,760px)] min-[769px]:grid-cols-[55%_45%]"
+    >
+      <div className="px-gutter py-10 min-[769px]:flex min-[769px]:flex-col min-[769px]:justify-center min-[769px]:py-16 min-[769px]:pr-12">
         {/*
           Both languages share one grid cell, so the block is always as tall
           as the longer one and nothing below it moves when the language
@@ -21,7 +24,7 @@ export default function Intro() {
         */}
         <div className="lang-stack grid">
           <div className="en self-end [grid-area:1/1]">
-            <h1 className="m-0 text-[clamp(38px,7vw,60px)] font-extrabold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+            <h1 className="m-0 text-[clamp(36px,4.2vw,60px)] font-extrabold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
               I build things that help families <span className="text-violet">grow</span>.
             </h1>
             <p className="mb-0 mt-6 max-w-[56ch] text-[19px] leading-[1.6] text-muted">
@@ -30,7 +33,7 @@ export default function Intro() {
             </p>
           </div>
           <div className="ko self-end [grid-area:1/1]">
-            <h1 className="m-0 text-[clamp(32px,5.6vw,46px)] font-extrabold leading-[1.3] tracking-[-.01em] [text-wrap:balance]">
+            <h1 className="m-0 text-[clamp(30px,3.2vw,46px)] font-extrabold leading-[1.3] tracking-[-.01em] [text-wrap:balance]">
               아이와 함께 <span className="text-violet">자라며</span>, 필요한 걸 직접 만드는 엄마.
             </h1>
             <p className="mb-0 mt-6 max-w-[56ch] text-[19px] leading-[1.6] text-muted">
@@ -71,32 +74,20 @@ export default function Intro() {
       </div>
 
       {/*
-        Light: a wide landscape crop used as a backdrop. On desktop it bleeds
-        to the right edge of the window and fades out behind the text; on
-        mobile it's a full-width banner that fades at the bottom. Dark: the
-        bright sky would glow against the dark page, so a crisp circular
-        crop shows in the photo column instead. Which one shows is decided in
-        globals.css from the device setting or the theme switch.
+        Fills the right 45% top to bottom (object-fit: cover), positioned so
+        the face stays in frame; only the left edge fades (.hero-photo).
+        On phones it sits above the text at full width.
       */}
-      <div className="order-first w-full min-[821px]:order-none">
+      <div className="relative order-first aspect-[4/3] min-[769px]:order-none min-[769px]:aspect-auto">
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
         <img
           src="/april-landscape.jpg"
           alt="April Kim smiling on the salt flats"
           width={1600}
           height={1200}
-          className="hero-photo-light -mt-6 mx-auto block aspect-[4/3] h-auto w-[calc((100%+48px)*0.85)] max-w-none object-cover min-[821px]:absolute min-[821px]:right-[calc((812px-100vw)/2)] min-[821px]:top-1/2 min-[821px]:mx-0 min-[821px]:mt-0 min-[821px]:w-[min(calc((50vw+80px)*0.85),646px)] min-[821px]:-translate-y-[calc(50%+56px)]"
-        />
-        {/* eslint-disable-next-line @next/next/no-img-element -- static export, image is pre-sized */}
-        <img
-          src="/april.jpg"
-          alt="April Kim smiling on the salt flats"
-          width={800}
-          height={800}
-          loading="lazy"
-          className="hero-photo-dark aspect-square h-auto w-full max-w-[220px] object-cover min-[821px]:max-w-none"
+          className="hero-photo absolute inset-0 h-full w-full object-cover object-[58%_30%]"
         />
       </div>
-    </div>
+    </section>
   );
 }
