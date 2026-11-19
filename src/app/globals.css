@@ -146,3 +146,32 @@ html[data-lang='ko'] .lang-stack > .en {
   display: block;
   visibility: hidden;
 }
+
+/*
+ * EN | KO switch: the thumb slides under the active language. Driven by
+ * html[data-lang], which the pre-paint script sets, so there is no slide
+ * on page load, only when switching.
+ */
+.lang-switch-thumb {
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+html[data-lang='ko'] .lang-switch-thumb {
+  transform: translateX(100%);
+}
+.lang-switch [data-lang-option] {
+  color: var(--muted);
+  transition: color 200ms ease;
+}
+.lang-switch [data-lang-option]:hover {
+  color: var(--ink);
+}
+html[data-lang='en'] .lang-switch [data-lang-option='en'],
+html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
+  color: var(--bg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lang-switch-thumb,
+  .lang-switch [data-lang-option] {
+    transition: none;
+  }
+}

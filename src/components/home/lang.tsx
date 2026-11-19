@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { L } from './L';
 
 export type Lang = 'en' | 'ko';
 
@@ -37,20 +36,4 @@ export function useLang(): Lang {
   }, []);
 
   return lang;
-}
-
-export function LangToggle() {
-  const lang = useLang();
-  const next: Lang = lang === 'en' ? 'ko' : 'en';
-
-  return (
-    <button
-      type="button"
-      onClick={() => applyLang(next)}
-      aria-label={lang === 'en' ? 'Switch to Korean' : '영어로 보기'}
-      className="rounded-full border border-line px-[14px] py-[6px] text-[13px] font-semibold text-ink hover:border-ink"
-    >
-      <L en="한국어" ko="English" />
-    </button>
-  );
 }
