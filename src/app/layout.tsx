@@ -8,6 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aprkim.com'),
   title: 'April Kim — Founder, Engineer, Designer',
   description:
     'I build things that matter. Founder, engineer, and designer focused on creating thoughtful products that serve real people.',
@@ -29,6 +30,14 @@ export const metadata: Metadata = {
     siteName: 'April Kim',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'April Kim — immigrant founder building things that help people grow',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -36,6 +45,7 @@ export const metadata: Metadata = {
     description:
       'I build things that matter. Founder, engineer, and designer focused on creating thoughtful products that serve real people.',
     creator: '@aprkim',
+    images: ['/og.png'],
   },
   robots: {
     index: true,
