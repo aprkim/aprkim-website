@@ -11,7 +11,10 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-[1040px] px-6 pb-20">
       <header className="flex items-center justify-between pt-7">
-        <span className="text-[17px] font-extrabold tracking-[-.01em]">April Kim</span>
+        {/* Plain <a> (not next/link) so clicking reloads the page */}
+        <a href="/" className="text-[17px] font-extrabold tracking-[-.01em] text-ink no-underline">
+          April Kim
+        </a>
         <LangToggle />
       </header>
       <Intro />
