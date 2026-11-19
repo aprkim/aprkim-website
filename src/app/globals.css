@@ -187,3 +187,29 @@ html[data-lang='ko'] .lang-switch [data-lang-option='ko'] {
     transition: none;
   }
 }
+
+/*
+ * Hero photo: in light mode the edges dissolve into the white page so the
+ * sky and salt flats read as part of the background. Dark mode swaps in
+ * the circular crop (via <picture>) and gets a crisp circle instead.
+ */
+.hero-photo {
+  -webkit-mask-image: radial-gradient(closest-side at 50% 46%, #000 50%, rgba(0, 0, 0, 0.55) 75%, transparent 100%);
+  mask-image: radial-gradient(closest-side at 50% 46%, #000 50%, rgba(0, 0, 0, 0.55) 75%, transparent 100%);
+}
+@media (prefers-color-scheme: dark) {
+  .hero-photo {
+    -webkit-mask-image: none;
+    mask-image: none;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 1px var(--line);
+  }
+}
+/* The light-mode photo spills its faded edge into the column gap; the
+   dark-mode circle has a hard edge, so keep it inside its own column. */
+@media (prefers-color-scheme: dark) and (min-width: 821px) {
+  .hero-photo {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+}
