@@ -43,16 +43,8 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between border-b border-line pb-5 pt-7">
       {/* Plain <a> (not next/link) so clicking reloads the page */}
-      <a href="/" className="group flex items-center gap-2.5 text-ink no-underline">
-        {/* eslint-disable-next-line @next/next/no-img-element -- tiny static brand mark */}
-        <img
-          src="/icon-192.png"
-          alt=""
-          width={28}
-          height={28}
-          className="h-7 w-7 rounded-[8px] transition-transform duration-300 ease-out group-hover:-rotate-6 motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
-        />
-        <span className="text-[16px] font-semibold tracking-[-.01em]">April Kim</span>
+      <a href="/" className="text-[16px] font-semibold tracking-[-.01em] text-ink no-underline">
+        April Kim
       </a>
       <LangSwitch />
     </header>
