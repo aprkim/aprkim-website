@@ -13,8 +13,10 @@ export default function Home() {
       {/* Full-width hero; the header sits inside it, over the photo */}
       <Intro />
       <div className="px-gutter">
-        {/* Sections start on the same line as the hero text; capped for readable line length */}
-        <div className="max-w-[860px]">
+        {/* Sections span the same gutters as the header: left on the hero
+            text line, right on the language switch. Long paragraphs cap
+            their own line length (see WhyIBuild). */}
+        <div>
           <Latest />
           <Made />
           <WhyIBuild />

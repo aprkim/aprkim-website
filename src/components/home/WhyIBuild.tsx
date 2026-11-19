@@ -4,7 +4,7 @@ import { L } from './L';
 export default function WhyIBuild() {
   return (
     <HomeSection id="story" en="Why I build" ko="제가 만드는 이유">
-      <div className="grid gap-4 text-lg leading-[1.7]">
+      <div className="grid max-w-[68ch] gap-4 text-lg leading-[1.7]">
         <p className="m-0 text-[21px] font-semibold leading-[1.5]">
           <L
             en="For years, I had ideas I couldn’t build myself, and it was frustrating. Now, with AI, I can."
