@@ -12,7 +12,7 @@ const btn =
 
 export default function Intro() {
   return (
-    <div className="grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1.15fr_1fr] min-[821px]:gap-14 min-[821px]:pt-[72px]">
+    <div className="grid grid-cols-1 items-center gap-8 pb-4 pt-10 min-[821px]:grid-cols-[1fr_300px] min-[821px]:gap-14 min-[821px]:pt-[72px]">
       <div>
         {/*
           Both languages share one grid cell, so the block is always as tall
@@ -76,7 +76,7 @@ export default function Intro() {
         alt="April Kim smiling on the salt flats"
         width={800}
         height={800}
-        className="order-first block aspect-square h-auto w-full max-w-[220px] justify-self-start rounded-full object-cover shadow-[0_0_0_1px_var(--line)] min-[821px]:order-none min-[821px]:max-w-[400px] min-[821px]:justify-self-end"
+        className="order-first block aspect-square h-auto w-full max-w-[176px] justify-self-start rounded-full object-cover shadow-[0_0_0_1px_var(--line)] min-[821px]:order-none min-[821px]:max-w-[300px] min-[821px]:justify-self-end"
       />
     </div>
   );
