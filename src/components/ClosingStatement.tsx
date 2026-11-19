@@ -9,7 +9,7 @@ export default function ClosingStatement() {
           Just a conversation.
         </p>
         <a
-          href="mailto:aprkim@gmail.com"
+          href="mailto:hello@aprkim.com"
           className="inline-flex items-center px-6 py-3 bg-[var(--color-brand)] text-white font-medium rounded-[var(--radius)] hover:opacity-90 transition-opacity"
         >
           Let's talk

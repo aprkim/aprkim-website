@@ -36,7 +36,7 @@ const links = [
     icon: 'mail',
     title: 'Email',
     description: 'The simplest way to reach me',
-    url: 'mailto:aprkim@gmail.com',
+    url: 'mailto:hello@aprkim.com',
   },
 ];
 

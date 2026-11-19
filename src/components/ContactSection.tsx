@@ -240,10 +240,10 @@ export default function ContactSection() {
                   <p className="text-sm">
                     Something went wrong. Please try again, or email me at{' '}
                     <a
-                      href="mailto:aprkim@gmail.com"
+                      href="mailto:hello@aprkim.com"
                       className="text-[var(--color-brand)] underline hover:no-underline"
                     >
-                      aprkim@gmail.com
+                      hello@aprkim.com
                     </a>
                     .
                   </p>
