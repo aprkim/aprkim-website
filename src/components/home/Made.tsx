@@ -108,15 +108,21 @@ export default function Made() {
         </li>
 
         <li className="border-b border-line">
-          <div className={row}>
-            <b className="font-bold">Soriblocks</b>
+          <a
+            href="https://soriblocks.lihallc.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group ${row}`}
+          >
+            <b className="font-bold group-hover:text-violet">Sori Blocks</b>
             <span className={desc}>
-              <L en="My newest app. Free for now." ko="가장 최근에 만든 앱. 지금은 무료예요." />
+              <L
+                en="A Korean alphabet app for ages 3 to 6 that teaches letters by their sounds, so kids can read the syllables they build."
+                ko="3~6세 아이를 위한 한글 앱. 글자를 이름이 아닌 소리로 가르쳐서, 아이가 직접 만든 글자를 읽을 수 있어요."
+              />
             </span>
-            <span className={side}>
-              <L en="New" ko="신규" />
-            </span>
-          </div>
+            <span className={side}>soriblocks.lihallc.com ↗</span>
+          </a>
         </li>
 
       </ul>
