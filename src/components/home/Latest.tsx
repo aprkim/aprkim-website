@@ -18,8 +18,8 @@ export default function Latest() {
           <span className="ml-[3px] h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-white" />
         </span>
         <span>
-          <b className="block text-[17px] group-hover:text-violet">엄마라고 불러줘</b>
-          <span className="text-sm text-muted">
+          <b className="block text-[17px] leading-snug group-hover:text-violet">엄마라고 불러줘</b>
+          <span className="mt-1 block text-sm leading-[1.45] text-muted">
             <L
               en="When my daughter switched from 엄마 to Mommy"
               ko="딸이 엄마 대신 Mommy라고 부르던 날"
