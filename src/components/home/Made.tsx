@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ReactNode } from 'react';
 import HomeSection from './Section';
 import { L } from './L';
@@ -55,8 +54,6 @@ const items: Item[] = [
   },
 ];
 
-const whyLink =
-  'whitespace-nowrap border-b border-current font-semibold text-violet no-underline';
 
 export default function Made() {
   return (
@@ -79,33 +76,6 @@ export default function Made() {
           </li>
         ))}
 
-        <li className="border-b border-line">
-          <div className={row}>
-            <b className="font-bold">TinyWins</b>
-            <span className={desc}>
-              <span className="en">
-                Small tools for steady, low-pressure progress.{' '}
-                <Link href="/projects/tinywins" className={whyLink}>
-                  Why I built it
-                </Link>
-              </span>
-              <span className="ko">
-                부담 없이 조금씩 나아가게 돕는 작은 도구들.{' '}
-                <Link href="/projects/tinywins" className={whyLink}>
-                  만든 이유
-                </Link>
-              </span>
-            </span>
-            <a
-              href="https://tinywins.space"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${side} no-underline hover:text-violet`}
-            >
-              tinywins.space ↗
-            </a>
-          </div>
-        </li>
 
         <li className="border-b border-line">
           <a
