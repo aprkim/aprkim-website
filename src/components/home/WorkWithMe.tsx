@@ -51,11 +51,14 @@ export default function WorkWithMe() {
               <span className="order-3 col-span-full text-[15.5px] text-muted min-[561px]:order-none min-[561px]:col-span-1">
                 <L en={o.dEn} ko={o.dKo} />
               </span>
-              <span
-                aria-hidden="true"
-                className="text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-violet motion-reduce:transition-none"
-              >
-                →
+              <span className="whitespace-nowrap text-[12.5px] font-semibold text-muted group-hover:text-violet">
+                <L en="Inquire" ko="문의하기" />{' '}
+                <span
+                  aria-hidden="true"
+                  className="inline-block transition-transform duration-200 group-hover:translate-y-0.5 motion-reduce:transition-none"
+                >
+                  ↓
+                </span>
               </span>
             </TopicLink>
           </li>
