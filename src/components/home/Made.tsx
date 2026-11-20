@@ -39,6 +39,13 @@ const items: Item[] = [
     side: 'tabbi.ai ↗',
   },
   {
+    name: 'Tabbi Daily',
+    href: 'https://daily.tabbi.ai/',
+    en: 'One English phrase a day, with the story behind it and a native voice to say it with.',
+    ko: '하루 한 문장 영어 표현. 그 뒤에 숨은 이야기와 원어민 목소리로 함께 익혀요.',
+    side: 'daily.tabbi.ai ↗',
+  },
+  {
     name: 'Kept Cards',
     href: 'https://kept.cards',
     en: 'Save every greeting card worth keeping, with who sent it and why.',
